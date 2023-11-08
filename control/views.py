@@ -9,7 +9,7 @@ def teams(request):
 
     http_response = render(
         request=request,
-        template_name='equipos.html',
+        template_name='control/equipos.html',
         context=contexto,
     )
 
