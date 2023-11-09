@@ -1,15 +1,16 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>equipos</title>
-    <meta name="description" content="Our first page">
-    <meta name="keywords" content="html template">    
-  </head>
-  <body>
-    <h3>Equipos participante:</h3>
-    <ul>
-    {% for teams in teams %}
-    {% endfor %} 
-    </ul>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block titulo %}
+<title> Futbol - Inicio</title>
+{% endblock titulo %}
+
+{% block contenido %}    
+<h1>
+</h1>
+
+<h3>Equipos participante:</h3>
+<ul>
+{% for teams in teams %}
+{% endfor %} 
+</ul>
+{% endblock contenido %}
