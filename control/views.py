@@ -1,10 +1,11 @@
 from django.shortcuts import render
 
+from control.models import Copa_Libertadores
+
 # Create your views here.
 def teams(request):
     contexto = {
-        "local" : "Fluminense",
-        "visitante" : "Boca Juniors"
+        "visitante" : Copa_Libertadores.objects.all()
     }
 
     http_response = render(
