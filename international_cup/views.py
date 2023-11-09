@@ -11,7 +11,7 @@ def teams_html(request):
 
     http_response = render(
         request=request,
-        template_name='base.html',
+        template_name='inicio.html',
         context=contexto,
     )
 
