@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from international_cup.views import teams_html
 from control.views import teams
 
 urlpatterns = [
