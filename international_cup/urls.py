@@ -22,4 +22,4 @@ from control.views import teams
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('countrys/', include("control.urls")),
-]
+    path('teams/', teams)
