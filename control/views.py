@@ -16,28 +16,24 @@ def teams(request):
 
     return http_response
 
-def teams(request):
+def league(request):
     contexto = {
         "visitante" : Champions_League.objects.all(),
     }
 
     http_response = render(
         request=request,
-        template_name='control/equipos.html',
+        template_name='control/league.html',
         context=contexto,
     )
 
     return http_response
 
-def teams(request):
-    contexto = {
-        "visitante" : Copa_Sudamericana.objects.all(),
-    }
-
+def sudamericana(request):
     http_response = render(
         request=request,
-        template_name='control/equipossud.html',
-        context=contexto,
+        template_name='control/form_sudamericana.html',
+        
     )
 
     return http_response

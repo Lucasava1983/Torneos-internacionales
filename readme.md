@@ -1,4 +1,4 @@
-# Pre-entrega 3
+# Pre-entrega
 
 ## Instrucciones instalar proyecto en local
 + Crea una carpeta contenedora madre

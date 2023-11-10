@@ -10,8 +10,10 @@
 </h1>
 
 <ul>
-{% for equipos in visitante %}
+{% for league in visitante %}
   <li>
-    {{ equipos.champion}}, {{ equipos.runner_up }}
+    {{ league.champion}}, {{ league.runner_up }}
   </li>
 {% endfor %} 
+</ul>
+{% endblock contenido %}
