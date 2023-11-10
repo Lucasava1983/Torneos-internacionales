@@ -2,8 +2,17 @@
 
 {% block titulo %}
 <form method="post">
- {% csrf_token %}
- <p>Nombre del equipo</p>
- <input type="text" name="nombre"
+    {% csrf_token %}
+    <p>Nombre del equipo</p>
+    <input type="text" name="nombre">
+
+    <p>Director técnico</p>
+    <input type="text" name="tecnico">
+
+    <p>Capitán</p>
+    <input type="text" name="jugador">
+    <p>Número de camiseta</p>
+    <input type="number" name="dorsal" step="1">
+    <input type="submit" value="Enviar"> 
 </form>
 {% endblock titulo %}

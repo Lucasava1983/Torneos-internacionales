@@ -1,5 +1,6 @@
 from django.shortcuts import render
-
+from django.shortcuts import render, redirect
+from django.urls import reverse
 from control.models import Copa_Libertadores, Copa_Sudamericana, Champions_League
 
 # Create your views here.
@@ -11,6 +12,19 @@ def teams(request):
     http_response = render(
         request=request,
         template_name='control/equipos.html',
+        context=contexto,
+    )
+
+    return http_response
+
+def lista_equipos(request):
+    contexto = {
+        "visitante" : Copa_Sudamericana.objects.all(),
+    }
+
+    http_response = render(
+        request=request,
+        template_name='control/equipos_clasificados.html',
         context=contexto,
     )
 
@@ -30,10 +44,15 @@ def league(request):
     return http_response
 
 def sudamericana(request):
-    http_response = render(
-        request=request,
-        template_name='control/form_sudamericana.html',
-        
-    )
-
-    return http_response
+    if request.method == "POST":
+        data = request.POST
+        cupo = Copa_Sudamericana(nombre=data['nombre'], Director_técnico=data['tecnico'], Capitán=data['jugador'], dorsal=data['dorsal'])
+        cupo.save()
+        url_exitosa = reverse('equipos_clasificados')
+        return redirect(url_exitosa)
+    else:
+        http_response = render(
+            request=request,
+            template_name='control/form_sudamericana.html',
+        )
+        return http_response

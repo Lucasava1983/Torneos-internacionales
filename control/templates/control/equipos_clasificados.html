@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+<title> Copa Sudamericana</title>
+{% endblock titulo %}
+
+{% block contenido %}    
+<h1>
+  Equipos clasificados
+</h1>
+
+<ul>
+{% for cupo in cupo %}
+  <li>
+    {{ cupo.nombre}}, {{ cupo.tecnico }}, {{ cupo.jugador }}, {{ cupo.camiseta }}
+  </li>
+{% endfor %} 
+</ul>
+{% endblock contenido %}
