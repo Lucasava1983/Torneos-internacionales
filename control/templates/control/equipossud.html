@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+<title> Futbol - Inicio</title>
+{% endblock titulo %}
+
+{% block contenido %}    
+<h1>
+  Equipos participantes:
+</h1>
+
+<ul>
+{% for equipos in visitante %}
+  <li>
+    {{ equipos.champion}}, {{ equipos.runner_up }}
+  </li>
+{% endfor %} 
