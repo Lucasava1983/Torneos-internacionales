@@ -46,7 +46,7 @@ def league(request):
 def sudamericana(request):
     if request.method == "POST":
         data = request.POST
-        cupo = Copa_Sudamericana(nombre=data['nombre'], Director_técnico=data['tecnico'], Capitán=data['jugador'], dorsal=data['dorsal'])
+        cupo = Copa_Sudamericana(nombre=data['nombre'], director_técnico=data['tecnico'], capitán=data['jugador'], dorsal=data['dorsal'])
         cupo.save()
         url_exitosa = reverse('equipos_clasificados')
         return redirect(url_exitosa)
