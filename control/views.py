@@ -1,6 +1,6 @@
-from django.shortcuts import render
 from django.shortcuts import render, redirect
 from django.urls import reverse
+
 from control.models import Copa_Libertadores, Copa_Sudamericana, Champions_League
 
 # Create your views here.
@@ -39,7 +39,7 @@ def equipos_clasificados(request):
 
     http_response = render(
         request=request,
-        template_name='control/lista_clasificados.html',
+        template_name="control/lista_clasificados.html",
         context=contexto,
     )
     return http_response
