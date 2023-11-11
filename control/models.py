@@ -12,7 +12,7 @@ class Copa_Libertadores(models.Model):
         return f'{self.champion}, {self.runner_up}'
 
 class Copa_Sudamericana(models.Model):
-    nombre= models.CharField(max_length=100)
+    equipo= models.CharField(max_length=100)
     director_tecnico= models.CharField(max_length=250)
     capitan= models.CharField(max_length=250)
     dorsal=models.IntegerField()

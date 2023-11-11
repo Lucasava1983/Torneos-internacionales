@@ -82,3 +82,9 @@ def sudamericana(request):
 
     return http_response
 
+def buscar_equipos(request):
+    if request.method == "POST":
+        data = request.POST
+        busqueda = data["busqueda"]
+
+        quealified = Copa_Sudamericana.objects.filter()
