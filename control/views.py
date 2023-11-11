@@ -62,6 +62,7 @@ def sudamericana_v1(request):
 def sudamericana(request):
     if request.method == "POST":
         formulario = CuposSudamericana(request.POST)
+
         if formulario.is_valid():
             data = formulario.cleaned_data
             equipo = data["equipo"]
@@ -83,13 +84,13 @@ def sudamericana(request):
     return http_response
 
 def buscar_equipos(request):
-    if request.method == "POST":
+   if request.method == "POST":
         data = request.POST
         busqueda = data["busqueda"]
 
-        qualified = Copa_Sudamericana.objects.filter(equipo__contains=busqueda)
+        cupos = Copa_Sudamericana.objects.filter(equipo__contains=busqueda)
         contexto = {
-            "qualified": qualified,
+            "cupos": cupos,
         }
         http_response = render(
             request=request,
