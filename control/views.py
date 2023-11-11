@@ -64,11 +64,11 @@ def sudamericana(request):
         formulario = CuposSudamericana(request.POST)
         if formulario.is_valid():
             data = formulario.cleaned_data
-            nombre = data["nombre"]
+            equipo = data["equipo"]
             director_tecnico = data["director_tecnico"]
             capitan = data["capitan"]
             dorsal = data["dorsal"]
-            qualified = Copa_Sudamericana(nombre=nombre, director_tecnico=director_tecnico, capitan=capitan, dorsal=dorsal)
+            qualified = Copa_Sudamericana(equipo=equipo, director_tecnico=director_tecnico, capitan=capitan, dorsal=dorsal)
             qualified.save()
             url_successful = reverse('lista')
             return redirect(url_successful)
