@@ -10,7 +10,7 @@
   Equipos clasificados:
 </h1>
 <a href="{% url 'lista' %}">Ver Todos</a>
-<a href="{% url 'sudamericana' %}">Crear Equipo</a>
+<a href="{% url 'equipos_sudamericana' %}">Crear Equipo</a>
 <br><br>
 <form action="{% url 'buscar_equipos' %}" method="post">
   {% csrf_token %}

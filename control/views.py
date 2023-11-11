@@ -87,10 +87,10 @@ def buscar_equipos(request):
         data = request.POST
         busqueda = data["busqueda"]
 
-        qualified = Copa_Sudamericana.objects.filter(equipos__contains=busqueda)
+        clasificado = Copa_Sudamericana.objects.filter(equipo__contains=busqueda)
 
         contexto = {
-            "qualified": qualified
+            "clasificado": clasificado
         }
 
         http_response = render(
