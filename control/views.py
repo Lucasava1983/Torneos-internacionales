@@ -73,7 +73,7 @@ def sudamericana(request):
             url_successful = reverse('lista')
             return redirect(url_successful)
     else:
-        formulario =CuposSudamericana()
+        formulario = CuposSudamericana()
     http_response = render(
         request=request,
         template_name='control/form_qualified.html',
