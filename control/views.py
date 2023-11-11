@@ -48,7 +48,7 @@ def equipos_clasificados(request):
 def sudamericana_v1(request):
     if request.method == "POST":
         data = request.POST
-        cupo = Copa_Sudamericana(nombre=data['nombre'], director_tecnico=data['tecnico'], capitan=data['jugador'], dorsal=data['dorsal'])
+        cupo = Copa_Sudamericana(equipo=data['equipo'], director_tecnico=data['tecnico'], capitan=data['jugador'], dorsal=data['dorsal'])
         cupo.save()
         url_list = reverse('lista')
         return redirect(url_list)
@@ -87,4 +87,16 @@ def buscar_equipos(request):
         data = request.POST
         busqueda = data["busqueda"]
 
-        quealified = Copa_Sudamericana.objects.filter()
+        qualified = Copa_Sudamericana.objects.filter(equipos__contains=busqueda)
+
+        contexto = {
+            "qualified": qualified
+        }
+
+        http_response = render(
+            request=request,
+            template_name='control/lista.html',
+            context=contexto,
+        )
+
+        return http_response
