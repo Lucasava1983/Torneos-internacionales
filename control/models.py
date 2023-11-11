@@ -18,7 +18,7 @@ class Copa_Sudamericana(models.Model):
     dorsal=models.IntegerField()
 
     def __str__(self):
-        return f'{self.nombre}, {self.Director_técnico}, {self.Capitán}, {self.dorsal}'
+        return f'{self.nombre}, {self.director_tecnico}, {self.capitan}, {self.dorsal}'
 
 class Champions_League(models.Model):
     continent= models.CharField(max_length=100)
