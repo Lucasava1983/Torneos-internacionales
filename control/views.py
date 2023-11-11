@@ -67,10 +67,10 @@ def sudamericana(request):
             nombre = data["nombre"]
             director_tecnico = data["director_tecnico"]
             capitan = data["capitan"]
-            numero_camiseta = data["numero_camiseta"]
-            qualified = Copa_Sudamericana(nombre=nombre, director_tecnico=director_tecnico, capitan=capitan, numero_camiseta=numero_camiseta)
+            dorsal = data["dorsal"]
+            qualified = Copa_Sudamericana(nombre=nombre, director_tecnico=director_tecnico, capitan=capitan, dorsal=dorsal)
             qualified.save()
-            url_successful = reverse(lista)
+            url_successful = reverse('lista')
             return redirect(url_successful)
     else:
         formulario =CuposSudamericana()
@@ -79,4 +79,6 @@ def sudamericana(request):
         template_name='control/form_qualified.html',
         context={'formulario': formulario}
     )
+
+    return http_response
 
