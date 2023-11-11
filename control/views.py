@@ -42,7 +42,6 @@ def equipos_clasificados(request):
         template_name='control/lista_clasificados.html',
         context=contexto,
     )
-
     return http_response
 
 def sudamericana(request):
