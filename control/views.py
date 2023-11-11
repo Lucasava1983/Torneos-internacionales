@@ -39,7 +39,7 @@ def equipos_clasificados(request):
 
     http_response = render(
         request=request,
-        template_name="control/lista_clasificados.html",
+        template_name='control/lista.html',
         context=contexto,
     )
     return http_response
@@ -49,8 +49,8 @@ def sudamericana(request):
         data = request.POST
         cupo = Copa_Sudamericana(nombre=data['nombre'], director_tecnico=data['tecnico'], capitan=data['jugador'], dorsal=data['dorsal'])
         cupo.save()
-        url_code = reverse('lista_clasificados')
-        return redirect(url_code)
+        url_list = reverse('lista')
+        return redirect(url_list)
     else:
         http_response = render(
             request=request,
