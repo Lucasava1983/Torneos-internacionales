@@ -8,3 +8,4 @@ urlpatterns = [
     path('equipos_sudamericana', sudamericana, name='equipos_sudamericana'),
     path('cupos/', equipos_clasificados, name='lista'),
 ]
+

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
 
+from control.forms import CuposSudamericana
 from control.models import Copa_Libertadores, Copa_Sudamericana, Champions_League
 
 # Create your views here.
@@ -44,7 +45,7 @@ def equipos_clasificados(request):
     )
     return http_response
 
-def sudamericana(request):
+def sudamericana_v1(request):
     if request.method == "POST":
         data = request.POST
         cupo = Copa_Sudamericana(nombre=data['nombre'], director_tecnico=data['tecnico'], capitan=data['jugador'], dorsal=data['dorsal'])
@@ -57,3 +58,24 @@ def sudamericana(request):
             template_name='control/form_sudamericana.html',
         )
         return http_response
+    
+def sudamericana(request):
+    if request.method == "POST":
+        formulario = CuposSudamericana(request.POST)
+        if formulario.is_valid():
+            data = formulario.cleaned_data
+            nombre = data["nombre"]
+            director_tecnico = data["director_tecnico"]
+            capitan = data["capitan"]
+            numero_camiseta = data["numero_camiseta"]
+            qualified = Copa_Sudamericana(nombre=nombre, director_tecnico=director_tecnico, capitan=capitan, numero_camiseta=numero_camiseta)
+            qualified.save()
+            url_successful = reverse(lista)
+            return redirect(url_successful)
+    else:
+        formulario =CuposSudamericana()
+    http_response = render(
+        request=request
+        template_name='control
+    )
+
