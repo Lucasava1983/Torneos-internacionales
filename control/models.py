@@ -13,8 +13,8 @@ class Copa_Libertadores(models.Model):
 
 class Copa_Sudamericana(models.Model):
     nombre= models.CharField(max_length=100)
-    director_técnico= models.CharField(max_length=250)
-    capitán= models.CharField(max_length=250)
+    director_tecnico= models.CharField(max_length=250)
+    capitan= models.CharField(max_length=250)
     dorsal=models.IntegerField()
 
     def __str__(self):
