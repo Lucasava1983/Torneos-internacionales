@@ -75,7 +75,8 @@ def sudamericana(request):
     else:
         formulario =CuposSudamericana()
     http_response = render(
-        request=request
-        template_name='control
+        request=request,
+        template_name='control/form_qualified.html',
+        context={'formulario': formulario}
     )
 
