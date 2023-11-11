@@ -88,7 +88,6 @@ def buscar_equipos(request):
         busqueda = data["busqueda"]
 
         qualified = Copa_Sudamericana.objects.filter(equipo__contains=busqueda)
-
         contexto = {
             "qualified": qualified,
         }
@@ -97,5 +96,4 @@ def buscar_equipos(request):
             template_name='control/lista.html',
             context=contexto,
         )
-
         return http_response
