@@ -17,18 +17,7 @@ def teams(request):
 
     return http_response
 
-def equipos_clasificados(request):
-    contexto = {
-        "visitante" : Copa_Sudamericana.objects.all(),
-    }
 
-    http_response = render(
-        request=request,
-        template_name='control/lista_clasificados.html',
-        context=contexto,
-    )
-
-    return http_response
 
 def league(request):
     contexto = {
@@ -43,12 +32,25 @@ def league(request):
 
     return http_response
 
+def equipos_clasificados(request):
+    contexto = {
+        "cupos" : Copa_Sudamericana.objects.all(),
+    }
+
+    http_response = render(
+        request=request,
+        template_name='control/lista_clasificados.html',
+        context=contexto,
+    )
+
+    return http_response
+
 def sudamericana(request):
     if request.method == "POST":
         data = request.POST
         cupo = Copa_Sudamericana(nombre=data['nombre'], director_tecnico=data['tecnico'], capitan=data['jugador'], dorsal=data['dorsal'])
         cupo.save()
-        url_exitosa = reverse('equipos_clasificados')
+        url_exitosa = reverse('lista_clasificados') 
         return redirect(url_exitosa)
     else:
         http_response = render(
