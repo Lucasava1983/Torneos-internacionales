@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
+from django.db.models import Q
 
 from control.forms import CuposSudamericana
 from control.models import Copa_Libertadores, Copa_Sudamericana, Champions_League
@@ -88,7 +89,9 @@ def buscar_equipos(request):
         data = request.POST
         busqueda = data["busqueda"]
 
-        cupos = Copa_Sudamericana.objects.filter(equipo__contains=busqueda)
+        cupos = Copa_Sudamericana.objects.filter(
+            Q(equipo__contains=busqueda) | Q(director_tecnico__contains=busqueda) | Q(capitan__contains=busqueda) | Q(dorsal__contains=busqueda)
+            )
         contexto = {
             "cupos": cupos,
         }
