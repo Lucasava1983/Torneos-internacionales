@@ -46,19 +46,20 @@ def equipos_clasificados(request):
     )
     return http_response
 
-def sudamericana_v1(request):
-    if request.method == "POST":
-        data = request.POST
-        cupo = Copa_Sudamericana(equipo=data['equipo'], director_tecnico=data['tecnico'], capitan=data['jugador'], dorsal=data['dorsal'])
-        cupo.save()
-        url_list = reverse('lista')
-        return redirect(url_list)
-    else:
-        http_response = render(
-            request=request,
-            template_name='control/form_sudamericana.html',
-        )
-        return http_response
+#def sudamericana_v1(request):
+#    if request.method == "POST":
+#        data = request.POST
+#        cupo = Copa_Sudamericana(equipo=data['equipo'], director_tecnico=data['tecnico'], capitan=data['jugador'], dorsal=data['dorsal'])
+#        cupo.save()
+#        url_list = reverse('lista')
+#        return redirect(url_list)
+#    else:
+#        http_response = render(
+#            request=request,
+#            template_name='control/form_sudamericana.html',
+#        
+#        )
+#        return http_response
     
 def sudamericana(request):
     if request.method == "POST":

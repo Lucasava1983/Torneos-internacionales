@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block titulo %}
-<title> Copa Sudamericana</title>
+<title>Copa Sudamericana</title>
 {% endblock titulo %}
 
 {% block contenido %}    
@@ -18,11 +18,24 @@
   <input type="submit" value="Buscar por Equipo">
 </form>
 <br>
-<ul>
-{% for cupo in cupos %}
-  <li>
-    {{ cupo.nombre}}, {{ cupo.tecnico }}, {{ cupo.jugador }}, {{ cupo.dorsal }}
-  </li>
-{% endfor %} 
-</ul>
+<table class="table">
+  <tbody>
+    <tr>
+      <th>ID</th>
+      <th>Equipo</th>
+      <th>Director Tecnico</th>
+      <th>Capitan</th>
+      <th>Dorsal</th>
+    </tr>
+    {% for cupo in cupos %}
+    <tr>
+      <td>{{ cupo.id }}</td>
+      <td>{{ cupo.equipo }}</td>
+      <td>{{ cupo.director_tecnico }}</td>
+      <td>{{ cupo.capitan }}</td>
+      <td>{{ cupo.dorsal }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endblock contenido %}
