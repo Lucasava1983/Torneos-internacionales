@@ -10,7 +10,7 @@ Crear equipo
 <form method="post">
     {% csrf_token %}
     {{ formulario.as_p}}
-    <input class="btn btn-danger" type="submit" value="Agregar equipo" />
+    <input class="btn btn-danger" type="submit" value="Guardar" />
 </form>
 <br>
 <a href="{% url 'lista' %}">Volver a la lista</a>
